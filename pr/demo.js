@@ -276,10 +276,101 @@ console.log(samir)
 */
 
 /**************************************
-* Objects and Properties
+* CC
  */
+/*
+ var jhon ={
+     mass : 52,
+     hight : 1.7,
+     calculateBMI : function(){
+        this.BMI = this.mass / (this.hight * this.hight);
+        return this.BMI;
+    }
+ };
+
+var jack = {
+    mass : 52,
+    hight : 1.7,
+    calculateBMI : function(){
+       this.BMI = this.mass / (this.hight * this.hight);
+       return this.BMI;
+   }
+};
 
 
+if(jhon.calculateBMI() > jack.calculateBMI()){
+    console.log(`jhon\'s BMI is ${jhon.BMI - jack.BMI}higher than jack\'s`);
+}else if(jhon.BMI < jack.BMI){
+    console.log(`jack\'s BMI is ${jack.BMI - jhon.BMI}higher than jack\'s`);
+}else{
+    console.log(`ohh! Both\'s BMI ar same i.e ${jhon.BMI} `);
+}
+
+*/
+
+/**************************************
+* loops and iteration
+ */
+/*
+ for(var i = 0 ; i<10 ; i++){
+     console.log(i);
+ }
+
+ var pr = ['Pr' , 'Panda' , 21 , 'SE'];
+ for(var i = 0 ; i<pr.length ; i++){
+     if(typeof pr[i] !== 'string'){
+         continue;
+     }
+     console.log(pr[i]);
+ }
+
+var i = 0;
+while( i < (pr.length) ){
+    if(typeof pr[i] === 'number' ){
+        break;
+    }
+    console.log(pr[i]);
+    i++;
+}
+*/
+
+/*
+
+Released ==>JavaScript ==> (1995)
+Then Handed to ==> ES1 (ECMAScript 1) ==> (1997)
+Released with lots of fetures ==> ES5 ==> (2009)
+The bigest update to the Language level ==> ES6 / ES2015 ==> (2015)
+then started the cycle every year.
+
+ES5 ==> Supported By All Browser
+ES6/ES2015 && ES7/2016 && ES8/2019 ==> Wll supported by ModernDays Browser but not in older Browsers.
+NOTE ==> But We can use most fetures in production with transpiling and polyfiling (Converting to ES5).
+
+Future versions called togather 'ESNext' ==> ES9/ES2018 && ES10/ES2019 .
+Some fetures are supported by morden Browsers.
+NOTE ==> But We can use most fetures in production with transpiling and polyfiling.
 
 
+(Work of JavaScriptENGINE )JavaScript code ==> parser ==>machine level code (Byte code) ==> then execute the task on processores.
 
+NOTE ==>lastName === window.lastName;(In case of GlobalContext means the codes that are not inside any function is associated with the global object(i.e in browser GlobalContext is the'window'));
+
+*/
+
+var a = 'Hello';
+function f1(){
+    var b = 'Hi';
+    console.log(a,b);
+}
+//console.log(a , b); can't access 'b' variable;
+f1();
+
+for(i = 1 ; i<2 ; i++){
+    var c = "Hey!"
+    console.log(a ,c );
+}
+console.log(a ,c);//we can access 'c'variabe;
+
+//NOTE in JavaScript SCOPE is applicable for functions but not  for loops and iterators;
+
+console.log(this) //here this refers to window object.
