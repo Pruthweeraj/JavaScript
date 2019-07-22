@@ -480,65 +480,184 @@ console.log(nowAges);
 
 */
 
+/**************************************
+* functions and prototypes
+ */
+
+/*
+//creating a  construcor prototype
+var Person = function (name,gender,doy){
+    this.name = name;
+    this.gender =gender;
+    this.doy =doy;
+    this.calculateAge = function(){
+        return 2019 - this.doy;
+    }
+}
+//we can add fields and methods to the existing person and then it will be available to its all child object
+ Person.prototype.lastName = this.lastName;//adding field
+ Person.prototype.sayHi = function(){//adding method
+     return this.name + " says Hi.."
+ }
+
+var pr = new Person('pr' , 'male' ,1997);
+var rabi = new Person('sagar' , "male" ,1998 ) 
+console.log(pr);
+console.log(rabi);
+
+//calculateAge() method is inherated from Person constructor
+console.log(pr.calculateAge());
+console.log(pr.sayHi());
+console.log(rabi.calculateAge());
+console.log(rabi.sayHi());
+
+console.log(Person)
+
+*/
+
+
+/**************************************
+* Object.create
+ */
+
+ /*
+var personProto = {
+    calculateAge : function(){
+        return 2019-this.doy;
+    }
+}
+
+
+//case:1
+var pr = Object.create(personProto);
+pr.lastName ="panda";
+pr.gender ="male";
+pr.doy = 1997;
+
+console.log(pr);
+console.log(pr.calculateAge());
+
+//case:2
+var sagar =Object.create(personProto ,{
+    lastName : { value : "das"},
+    gender : {value :"male"},
+    doy : {value : 1999 }
+});
+
+console.log(sagar);
+console.log(sagar.calculateAge());
+
+*/
+
+
+/**************************************
+* primitive vs Object
+ */
+
+ /*
+ var a = 20;
+ var b = a ; //here 'b' will copy the value of a i.e 20;so next time when you change the 'a's value b will not affected.
+ a = 30;
+ console.log(a);//30
+ console.log(b);//20
+
+ //Objects
+var obj1 = {
+    name: "Pr",
+    age: 22
+};
+var obj2 = obj1; //here 'obj2' not copied the 'obj1' , it only holding the reference of the 'obj1' so if you change any thing in 'obj1' or 'obj2' then both will be affected.
+obj1.name ="pupa";
+console.log(obj1.name);//pupa
+console.log(obj2.name);//pupa 
+
+//functions
+var date = 25 ;
+var obj = {
+    name : "saagr",
+    place: "aul"
+};
+
+function change(date , obj){
+    date = 30;
+    obj.place = "KDP";
+}
+
+change(date , obj);
+
+console.log(date);//25; not-change due to primitive value passing.
+console.log(obj.place);//KDP changed due to object referance passing.
+
+
+/**************************************
+* FirstClass Function : function inside function 
+ */
+
+ /*
+
+var numbers =[1 ,2 ,3 , 4 , 5 , 6 , 7 , 8 , 9];
+
+function checkFn(nArray){
+    var resultArray = [] ;
+    for(var i = 0 ; i< nArray.length ;i++ ){
+        if(nArray[i] % 2 === 0){
+        resultArray = printFn(nArray[i]);
+        }
+    }
+    return resultArray;
+}
+
+function  printFn(el){
+    console.log(`${el} is a even number.`);
+}
+
+checkFn(numbers);
+
+*/
+
+/**************************************
+* FirstClass Function : function return a function
+ */
+
+/*
+ function lookFn(number){
+     if(number % 2 === 0){
+         return function(){
+            console.log(`${number} is an even number.`);
+         }
+     }else{
+         return function(){
+            console.log(`${number} is an odd number.`)
+         }
+     }
+ }
+
+var number = 21 ;
+var returnedFn = lookFn(number);
+returnedFn();//21 is an odd number.
+
+var number2 = 32 ;
+lookFn(number2)();//32 is an even number.//We can call like this also. because 'lookFn(number2)' function return a function and we are calling that function by '()';
+
+*/
 
 
 
 
+/**************************************
+* IIFI ==> Immediately Invokd function Expraction  
+ */
+//used for data privacy 
 
+var status ;
+(function (){
+    var pinCode = 3564;
+    if(pinCode.toString().endsWith("65")){
+        status ="success";
+    }else status ="failed";
+})();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(status);
 
 
 
