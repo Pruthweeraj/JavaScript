@@ -357,6 +357,8 @@ NOTE ==>lastName === window.lastName;(In case of GlobalContext means the codes t
 
 */
 
+/*
+
 var a = 'Hello';
 function f1(){
     var b = 'Hi';
@@ -374,3 +376,200 @@ console.log(a ,c);//we can access 'c'variabe;
 //NOTE in JavaScript SCOPE is applicable for functions but not  for loops and iterators;
 
 console.log(this) //here this refers to window object.
+
+*/
+
+
+/**************************************
+* var , let and const
+ */
+
+ /*
+
+//ES5
+var name5 = "pr";
+var age5 = 21;
+name5 ="panda";
+console.log(name5);
+
+//ES6
+const name6 = "pr";
+//name6 = "panda";// CE :Assignment to constant variable
+let  name66 = "pr";
+name66 = "panda";
+console.log(name66);
+
+
+//NOTE ==> "var" is a function level Scoped but not block leveled scoped.
+//NOTe ==> "let" and "const" both are block levled scoped.i.e anything sorrounder by {};
+//NOTE ==> "const" value must be defined while defined . else we will get CE.And we can't change the value once defined.
+
+
+
+{
+    let a = 10;
+    const b = 20;
+    var c = 30;
+}
+//console.log(a); CE : because "let" and "const" are block scoped.
+//console.log(b); CE : because "let" and "const" are block scoped.
+console.log(c); //o/p==>30 cuz "var" is a function scoped but not block scoped.
+
+*/
+
+/**************************************
+* string in ES6
+ */
+
+/*
+    let firstName ="Pr";
+    let lastName ="Panda";
+
+//ES5
+    console.log("My first name is " + firstName +" and My last name is "+lastName);
+//ES6
+    console.log(`My first name is ${firstName} and my last name is ${lastName}`);
+
+
+    const n = `${firstName} ${lastName}`;
+    console.log(n); //Pr Panda
+    
+    console.log(n.startsWith("P"));//true
+    console.log(n.endsWith("nda"));//true
+    console.log(n.endsWith("pnda"));//false
+    console.log(n.fontsize());//<font size="undefined">Pr Panda</font>
+    console.log(n.repeat(2));//Pr PandaPr Panda
+    console.log(`${n}->`.repeat(2));//Pr Panda->Pr Panda->
+
+*/
+
+//show  == episodes , series <= sesation  
+
+/**************************************
+* Arrow function in ES6
+ */
+
+/*
+
+let years = [1997,1999,2014,2014]
+
+//ES5
+let ages = years.map(function(year , index){
+   return 2018 - year;
+});
+
+console.log(ages);
+
+
+//ES6
+//case:1 (only one operation)==> no need of {} and no need of return statement ('return will be implicitily be done by the JS Engine'); 
+let marrageYears = years.map( year => year + 26 );
+console.log(marrageYears);
+
+//case:2 (only one line but two parameters are used)no need of {} and no need of return statement ('return will be implicitily be done by the JS Engine');
+let currentAges = years.map( (year , index ) => `${index + 1} person is now  ${2019 - year} old.\n` );
+console.log(currentAges);
+
+//case:3 (more than one line logic) ==>so we have to enclosed these logics with {} and we have to explicitly return the values if we need to use these value outside of the function. 
+let nowAges = years.map((year , index) => {
+    const now = new Date().getFullYear();
+    let age = now - year ;
+    return `${index + 1} person is now  ${age} old.\n`
+} )
+console.log(nowAges);
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
