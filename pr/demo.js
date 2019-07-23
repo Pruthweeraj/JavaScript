@@ -648,7 +648,7 @@ lookFn(number2)();//32 is an even number.//We can call like this also. because '
 * IIFI ==> Immediately Invokd function Expraction  
  */
 //used for data privacy 
-
+/*
 var status ;
 (function (){
     var pinCode = 3564;
@@ -659,27 +659,109 @@ var status ;
 
 console.log(status);
 
+*/
+
+/**************************************
+* Closeres
+ */
+
+ /*
+ function retierment(retirementYear){
+     var message = " years are remaining to retaired.";;
+     return function(doy){
+         var age = 2019 - doy;
+        console.log(retirementYear - age + message);
+     }
+ }
+
+var retirementUs = retierment(66);
+retirementUs(1997);//44 years are remaining to retaired.
+                    //here we are using the 'retairmentYear' and 'message' variable after return of the function.
+                    //so we can use the variables of the outer function inside the inner function.
+                    //availablity of outer functions variables to the inner function is called as the CLOSSER.
+
+retierment(1998)(66);//45 years are remaining to retaired.
 
 
+//NOTE: Aninner function has always access to the variables and parameters 
+//      of its outer function, even after the outer function has returned.
+//      This is called "CLOSERS". 
 
 
+*/
+
+/**************************************
+* call() , apply() and bind()
+ */
+
+ /*
+var pr ={
+    name : "Pruthweeraj",
+    lastName : "Panda",
+    sayHi : function(cuntryAge , age){
+        console.log(`My Name is ${this.name} ${this.lastName} and my age is ${age} \n illigiblity is ${age >= cuntryAge} .`);
+    }
+}
+
+pr.sayHi(18 ,21);
+
+var sagar = {
+    name : "sagar",
+    lastName : "Nanda"
+};
+
+//call(this , methodParameters )//here 'this' means which object you want to use.
+pr.sayHi.call(sagar , 18 ,17); //here we can call the 'pr' object's function 'sayHi()' in sagar.
+                                // This is called method borrowing. 
+                                //the very first parameter will be the 'this' object i.e which object you want to use.
+                                //here we passed 'sagar' object so in this 'sayHi()' function all 'this' refers to the 'sagar' object.
+
+//apply(this , [methodParameters])//this works same as call() method but the diffference is it will take an array'[]' of methodParameters. 
+
+//bind(this, parameters)//here the passed parametes are binded to the function and create a function and return that function .
+                        //Latter point of time we can ues that function.
+var germanyAgeLimit = 20 ;
+var bindedFn = pr.sayHi.bind(pr , germanyAgeLimit);//here we binded the 'germanyAgeLimit' and created a new function with the default 'germanyagelimit' value 20.
+bindedFn(16);
+
+//using 'pr' function in 'sagar'
+var bindFn2 = pr.sayHi.bind(sagar , germanyAgeLimit);
+bindFn2(23);
 
 
+*/
 
 
+/**************************************
+* Arrow Function lexical this keyword
+ */
+
+ //ES5
+ var box5 = {
+     color : "green",
+     position : 1,
+     clickMe: function(){
+         var self = this;
+         document.querySelector('.green').addEventListener('click' , function(){
+             var str = `My position is ${self.position} and my color is ${self.color}.Thankq :)`;
+             alert(str);
+         })
+     }
+ }
+ 
+ box5.clickMe();
 
 
+//ES6
+var box6 = {
+    color : "red",
+    position : 2,
+    clickMe: function(){
+        document.querySelector('.red').addEventListener('click' , () =>  alert(`My position is ${this.position} and my color is ${this.color}.Thankq :)`))
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+box6.clickMe();
 
 
 
